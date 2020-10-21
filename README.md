@@ -4,7 +4,6 @@
 Hello! I'm a machine learning engineer at Civis Analytics where I 
 1. Developed/ship our house forecasting model <br/> 
 2. Created a resource allocation service/dashboard <br/>
-3. Developed/manage our flight radar ad testing system <br/>
 3. Manage modeling-as-a-service products for our clients <br/>
 
 ### What is this repo? 
