@@ -4,7 +4,7 @@
 Hello! I'm a machine learning engineer at Civis Analytics where I 
 1. Developed/ship our house forecasting model to HMP 
 2. Created a resource allocation service/dashboard for SMP and the Biden campaign 
-3. Developed/manage our flight radar ad testing system for our senate clients.
+3. Developed/manage our flight radar ad testing system for our senate clients
 3. Manage modeling-as-a-service products for our clients
 
 ### What is this repo? 
@@ -23,8 +23,8 @@ tables in an accessible way + maintain version history. This repo is meant as a 
     with format 
 
     export SA_PASSWORD=`cat << EOF <paste json> EOF`
-2. Create a spreadsheet by setting CREATE_NEW_SPREADSHEET=True
-3. Write df to sheet and choose conditional formatting 
+2. Create a spreadsheet by setting `CREATE_NEW_SPREADSHEET=True` in `main.py` and write df to sheet
+4. Set `CREATE_NEW_SPREADSHEET=False` to keep your old sheet and choose conditional formatting 
 
 ### Questions? 
 @ashe_cs <br/>
