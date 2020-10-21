@@ -10,7 +10,9 @@ Hello! I'm a machine learning engineer at Civis Analytics where I
 ### What is this repo? 
 In progressive politics its important to get out numbers and get eyes on them _quickly_. Autoupdating spreadsheets are a convenient way to track important tables in an accessible way + maintain version history. This repo is meant as a simple boilerplate to set you up to do this fast. <br/>
 
-![](https://media.giphy.com/media/l4RKhOL0xiBdbgglFi/giphy.gif)
+<p align="center">
+<img src="https://media.giphy.com/media/l4RKhOL0xiBdbgglFi/giphy.gif" alt="animated"/> 
+</p>
 
 ### Steps ### 
 0. Set up your gcp (won't cover this)
