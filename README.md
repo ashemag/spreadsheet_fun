@@ -8,9 +8,9 @@ Hello! I'm a machine learning engineer at Civis Analytics where I
 3. Manage modeling-as-a-service products for our clients
 
 ### What is this repo? 
-It's important to get out numbers and get eyes on them _quickly_. 
-Autoupdating spreadsheets are a convenient way to track important
-tables in an accessible way + maintain version history. This repo is meant as a boilerplate to set you up to do this fast. 
+In progressive politics its important to get out numbers and get eyes on them _quickly_. Autoupdating spreadsheets are a convenient way to track important tables in an accessible way + maintain version history. This repo is meant as a simple boilerplate to set you up to do this fast. 
+
+![](https://giphy.com/gifs/l4RKhOL0xiBdbgglFi)
 
 ### Steps ### 
 0. Set up your gcp (won't cover this)
