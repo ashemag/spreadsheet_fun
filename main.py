@@ -1,17 +1,7 @@
 """
 This module explores spreadsheet automation 
 
-1. Create a service account in gcp 
-    a. Go to https://console.cloud.google.com/
-    b. Search service accounts 
-    c. + Create service account and name it 
-    d. Click on your created service account and Add Key 
-    e. Create New Key, Json, and save it in your bash_profile 
-    with format 
 
-    export SA_PASSWORD=`cat << EOF <paste json> EOF`
-2. Create a spreadsheet by setting CREATE_NEW_SPREADSHEET=True
-3. Write df to sheet and choose conditional formatting 
 
 """
 import pandas as pd

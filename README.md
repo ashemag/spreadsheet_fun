@@ -27,5 +27,5 @@ tables in an accessible way + maintain version history. This repo is meant as a 
 3. Write df to sheet and choose conditional formatting 
 
 ### Questions? 
-@ashe_cs
+@ashe_cs <br/>
 ashe.magalhaes@gmail.com 
