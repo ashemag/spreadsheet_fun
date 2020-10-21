@@ -152,7 +152,7 @@ def clear_sheet1(sh):
         wk = sh.worksheet('Sheet1')
         sh.del_worksheet(wk)
     except Exception as e:
-        print(e)
+        pass
 
 
 def clear_worksheet(sh, title):
@@ -160,30 +160,31 @@ def clear_worksheet(sh, title):
         worksheet = sh.add_worksheet(title=title, rows='500', cols='20')
     except:
         wk = sh.worksheet(title)
+        wk.clear()
         sh.del_worksheet(wk)
         worksheet = sh.add_worksheet(title=title, rows='500', cols='20')
 
 
 def conditional_formatter(wk, df, cols_to_colors, header_letters):
-
     rules = get_conditional_format_rules(wk)
+    rules.clear()
+    if cols_to_colors:
+        for idx, col in enumerate(df.columns):
+            if col in cols_to_colors:
+                color = COLOR_MAP[cols_to_colors[col]]
+            else:
+                color = WHITE
 
-    for idx, col in enumerate(df.columns):
-        if col in cols_to_colors:
-            color = COLOR_MAP[cols_to_colors[col]]
-        else:
-            color = WHITE
-
-        rule = ConditionalFormatRule(
-            ranges=[
-                GridRange.from_a1_range(f'{header_letters[idx]}1:{header_letters[idx]}2000', wk)
-            ],
-            gradientRule=GradientRule(
-                minpoint=InterpolationPoint(color=WHITE, type="MIN"),
-                maxpoint=InterpolationPoint(color=color, type="MAX"),
-            ),
-        )
-        rules.append(rule)
+            rule = ConditionalFormatRule(
+                ranges=[
+                    GridRange.from_a1_range(f'{header_letters[idx]}1:{header_letters[idx]}2000', wk)
+                ],
+                gradientRule=GradientRule(
+                    minpoint=InterpolationPoint(color=WHITE, type="MIN"),
+                    maxpoint=InterpolationPoint(color=color, type="MAX"),
+                ),
+            )
+            rules.append(rule)
 
     rules.save()
 
