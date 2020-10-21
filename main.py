@@ -1,6 +1,8 @@
 import pandas as pd
 import logging
 import os
+import seaborn as sns
+
 from utils import get_credentials, create_google_spreadsheet, write_to_sheet
 from column_color_codings import COLS_TO_COLORS
 
@@ -8,24 +10,19 @@ GCP_SERVICE_ACCOUNT_EMAIL = 'example-service-account@gorgon-city-90.iam.gservice
 CREATE_NEW_SPREADSHEET = False
 
 
-def download_data():
-    df = pd.read_csv('data/blast_500.csv')
-    columns = [
-        'District',
-        'DMA',
-        'Channel',
-        'Week',
-        'Dem GRPs',
-        'Rep GRPs',
-        'Net GRPs',
-        'Value Per Dollar',
-        'Change In DMA Voteshare',
-        'Cost Per Impression',
+def order_columns(df):
+    columns_first = [
+        df.columns[idx] for idx, dtype in enumerate(df.dtypes) if str(dtype) == 'object'
     ]
-    df = df.sort_values(by=['Value Per Dollar'], ascending=False)
+    columns_last = [col for col in df.columns if col not in columns_first]
+    df = df[columns_first + columns_last]
+    return df
 
+
+def download_data():
+    df = sns.load_dataset('iris')
     logger.info(df.shape)
-    return df[columns]
+    return df
 
 
 if __name__ == '__main__':
@@ -33,7 +30,7 @@ if __name__ == '__main__':
     logger = logging.getLogger('logger')
     logger.setLevel(logging.INFO)
     df = download_data()
-
+    df = order_columns(df)
     # create or fetch spreadsheet
     if CREATE_NEW_SPREADSHEET:
         sheet_id, gc, link = create_google_spreadsheet(
@@ -46,7 +43,7 @@ if __name__ == '__main__':
         )
 
     else:
-        sheet_id = '1vMGxaHnomqF0HWSAbONFTVZEgwcUInKpzEWpsZGK3iY'
+        sheet_id = '1yh_gOT8TsUnwU8EAAdLSEexn3JGtiY_q5O6j8RtZevU'
         link = f'\nhttps://docs.google.com/spreadsheets/d/{sheet_id}'
         _, gc = get_credentials(credential_password_env_var_name='SA_PASSWORD')
 
@@ -54,7 +51,7 @@ if __name__ == '__main__':
     write_to_sheet(
         gc,
         sheet_id,
-        'grp blast',
+        'floral datas',
         df,
         percent_cols=[],
         column_width_dict={0: 250},
