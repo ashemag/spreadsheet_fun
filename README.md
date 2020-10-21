@@ -26,7 +26,7 @@ In progressive politics its important to get out numbers and get eyes on them _q
 
     export SA_PASSWORD=`cat << EOF <paste json> EOF`<br/>
 2. Create a spreadsheet by setting `CREATE_NEW_SPREADSHEET=True` in `main.py` and write df to sheet<br/>
-4. Set `CREATE_NEW_SPREADSHEET=False` to keep your old sheet and choose conditional formatting <br/>
+4. Set `CREATE_NEW_SPREADSHEET=False` to keep your old sheet, update link value, and choose conditional formatting <br/>
 
 ### Questions? 
 @ashe_cs <br/>
